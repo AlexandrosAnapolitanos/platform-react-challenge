@@ -1,3 +1,3 @@
-import ThirdView from "./../components/ThirdView";
+import ThirdView from "./_components/ThirdView";
 
 export default ThirdView;

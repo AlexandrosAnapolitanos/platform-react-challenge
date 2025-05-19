@@ -3,12 +3,17 @@
 import { useAuth } from "@clerk/nextjs";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { RandomImagesContextType, useRandomImagesContext } from "./../layout";
+import {
+  RandomImagesContextType,
+  RandomImageType,
+  useRandomImagesContext,
+} from "./../layout";
 import { showToast } from "./../utils/helperFunctions";
 import FirstViewModal from "./FirstViewModal";
 import LoadingButton from "./LoadingButton";
 import Masonry from "./Masonry";
 import Pagination from "./Pagination";
+import PhotoItemInMasonry from "./PhotoItemInMasonry";
 
 export interface breedDataType {
   breeds: [
@@ -185,9 +190,19 @@ export default function FirstView() {
         />
       </div>
 
-      <Masonry
-        openModal={openModal}
-        showingImgPagination={showingImgPagination}
+      <Masonry<
+        RandomImageType,
+        { openModal: (id: string, url: string) => void }
+      >
+        items={showingImgPagination}
+        extraProps={{ openModal }}
+        renderItem={(photo, { openModal }) => (
+          <PhotoItemInMasonry
+            key={photo.id}
+            photoObject={photo}
+            handleClick={() => openModal(photo.id, photo.url)}
+          />
+        )}
       />
       <FirstViewModal
         closeModal={closeModal}
