@@ -1,8 +1,8 @@
 import ReactModal from "react-modal";
-import { RandomImageType } from "../../app/layout";
+import { RandomImageType } from "../../layout";
+import { breedDataType } from "../../page";
 import AddFavorite from "./AddFavorite";
 import BlockquoteDescription from "./BlockquoteDescription";
-import { breedDataType } from "./FirstView";
 import ImageInFirstModal from "./ImageInFirstModal";
 import TitleBreed from "./TitleBreed";
 import TwoPairsOfGauges from "./TwoPairsOfGauges";

@@ -1,5 +1,5 @@
-import { scaleToPercentage } from "../utils/helperFunctions";
-import { breedDataType } from "./FirstView";
+import { breedDataType } from "../../../app/page";
+import { scaleToPercentage } from "../../../utils/helperFunctions";
 import Gauge from "./RadialGauge";
 
 type TwoPairsOfGaugesProps = {

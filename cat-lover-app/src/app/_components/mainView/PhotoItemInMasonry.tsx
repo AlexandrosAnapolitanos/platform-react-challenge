@@ -1,4 +1,4 @@
-import CatImage from "./CatImage";
+import CatImage from "@/components/CatImage";
 
 type PhotoItemInMasonryProps = {
   photoObject: { id: string; url: string };

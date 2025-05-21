@@ -18,9 +18,9 @@ import {
   useState,
 } from "react";
 import ReactModal from "react-modal";
-import Navigation from "./components/Navigation";
-import ToastProvider from "./components/ToastProvider";
-import "./globals.css";
+import Navigation from "../components/Navigation";
+import ToastProvider from "../components/ToastProvider";
+import "../globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

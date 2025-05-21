@@ -1,5 +1,5 @@
-import { RandomImageType } from "../../app/layout";
-import { breedDataType } from "./FirstView";
+import { RandomImageType } from "../../layout";
+import { breedDataType } from "../../page";
 
 type BlockquoteDescriptionProps = {
   randomImages: RandomImageType[];

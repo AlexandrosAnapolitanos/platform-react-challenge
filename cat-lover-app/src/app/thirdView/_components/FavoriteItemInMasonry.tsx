@@ -1,5 +1,5 @@
 import { TiDeleteOutline } from "react-icons/ti";
-import CatImage from "./CatImage";
+import CatImage from "../../../components/CatImage";
 
 export type FavoriteItemInMasonryProps = {
   photoObject: {

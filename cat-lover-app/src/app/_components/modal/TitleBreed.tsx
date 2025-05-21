@@ -1,4 +1,4 @@
-import { breedDataType } from "./FirstView";
+import { breedDataType } from "../../page";
 
 type TitleBreedProps = {
   breedData: breedDataType | null | undefined;

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import CatImage from "./CatImage";
+import CatImage from "../../../components/CatImage";
 
 type ImageInFirstModalProps = {
   url: string | null;
