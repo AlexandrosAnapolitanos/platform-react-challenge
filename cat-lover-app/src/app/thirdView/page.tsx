@@ -70,16 +70,7 @@ export default function ThirdView() {
       setIsDeleting(true);
       setIsLoading(true);
       try {
-        const response = await deleteFavorite(id, userId);
-
-        console.log("Response Babe", response);
-
-        if (!response.ok) {
-          throw new Error({
-            message: "Failed to delete favorite",
-            statusCode: 500,
-          });
-        }
+        await deleteFavorite(id, userId);
         resolve();
       } catch (error) {
         if (error instanceof Error) {

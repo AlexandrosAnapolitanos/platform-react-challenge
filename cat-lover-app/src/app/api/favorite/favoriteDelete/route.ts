@@ -19,11 +19,13 @@ export async function DELETE(req: Request) {
       }
     );
 
+    if (!res.ok) {
+      throw new Error("Network response was not ok");
+    }
+
     const data = await res.json();
 
-    console.log("DATa", data);
-
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ data }, { status: 200 });
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
