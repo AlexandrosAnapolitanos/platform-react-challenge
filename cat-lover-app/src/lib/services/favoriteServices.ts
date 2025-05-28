@@ -1,3 +1,5 @@
+import { apiFetch } from "@/utils/apiFetch";
+
 export async function fetchFavorites({
   userId,
   page,
@@ -7,14 +9,15 @@ export async function fetchFavorites({
   page: number;
   limit: number;
 }) {
-  const res = await fetch(
-    `/api/favorite/fetchFavorites?sub_id=${userId}&page=${page}&limit=${limit}`
-  );
-  if (!res.ok) {
-    throw new Error("Failed to fetch favorites");
-  }
-
-  return res.json();
+  const params = new URLSearchParams({
+    sub_id: userId,
+    page: String(page),
+    limit: String(limit),
+  });
+  return apiFetch<{
+    data: { id: string; image: { url: string } }[];
+    totalCount: string | null;
+  }>(`/api/favorite/fetchFavorites?${params}`);
 }
 
 export async function deleteFavorite(id: string, userId: string) {

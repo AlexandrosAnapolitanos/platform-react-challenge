@@ -1,3 +1,5 @@
+import FailedToFetchFavoritesError from "@/errorHandling/FailedToFetchFavoritesError";
+import { CAT_API_KEY } from "@/utils/catApiKey";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
@@ -14,9 +16,7 @@ export async function GET(req: Request) {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key":
-            process.env.CAT_API_KEY ||
-            "live_ahcwnjbZ7jyDagCWID8poLdWYBxjuUmUmuKqJnMFt9xhNBQwpUpECWKopSwlhLOY",
+          "x-api-key": CAT_API_KEY,
         },
       }
     );
@@ -27,9 +27,8 @@ export async function GET(req: Request) {
     return NextResponse.json({ data, totalCount }, { status: 200 });
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
-    return NextResponse.json(
-      { message: `There was an error in getting favorites: ${error.message}` },
-      { status: 500 }
-    );
+    const typedError = new FailedToFetchFavoritesError(error.message);
+    console.log("typedError", typedError);
+    return NextResponse.json({ data: typedError });
   }
 }
